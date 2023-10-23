@@ -1,4 +1,4 @@
-import { Button, Typography } from "antd";
+import { Button, Typography, FloatButton } from "antd";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getRandomQuestions } from "../../services/functions";
@@ -8,6 +8,7 @@ function Quiz() {
     const [question, setQuestion] = useState("");
     const [answers, setAnswers] = useState([]);
     const [correctAnswer, setCorrectAnswer] = useState("");
+    const [pre, setPre] = useState(null);
     const [selected, setSelected] = useState();
     const [disabledNextBtn, setDisabledNextBtn] = useState(true);
     const [showResult, setShowResult] = useState(false);
@@ -16,7 +17,7 @@ function Quiz() {
 
     const navigate = useNavigate();
     const data = useLocation();
-    const { Title } = Typography;
+    const { Title, Text } = Typography;
 
     var randomQuestions = data?.state?.randomQuestions;
     var numberOfQuestions = data?.state?.numberOfQuestions;
@@ -27,6 +28,7 @@ function Quiz() {
             setQuestion(randomQuestions[0]?.question);
             setAnswers(randomQuestions[0]?.options);
             setCorrectAnswer(randomQuestions[0]?.answer);
+            (randomQuestions[0]?.pre) ? setPre(randomQuestions[0]?.pre) : setPre(null);
             randomQuestions?.splice(randomQuestions[0], 1);
         }
     }, []);
@@ -39,6 +41,7 @@ function Quiz() {
             setQuestion(randomQuestions[0]?.question);
             setAnswers(randomQuestions[0]?.options);
             setCorrectAnswer(randomQuestions[0]?.answer);
+            (randomQuestions[0]?.pre) ? setPre(randomQuestions[0]?.pre) : setPre(null);
 
             randomQuestions?.splice(randomQuestions[0], 1);
         } else {
@@ -101,6 +104,22 @@ function Quiz() {
                         justifyContent: "center",
                     }}
                 >
+                    <Button
+                        style={{
+                            position: 'absolute',
+                            top: 80,
+                            left: 15,
+                            zIndex: 1000,
+                            border: "0px",
+                            fontWeight: "bold",
+                            color: "white",
+                            backgroundColor: "green"
+                        }}
+
+                        onClick={() => navigate('/home')}
+                    >
+                        Back
+                    </Button>
                     <div
                         style={{
                             border: "3px solid #001529",
@@ -134,7 +153,9 @@ function Quiz() {
                                 padding: "20px",
                                 textAlign: "center"
                             }}>
-                            <Title>{question}</Title>
+                            <Title >{question}</Title>
+                            {pre ? showResult ? null : <Text>{pre}</Text> : null}
+
                         </div>
 
                         <div

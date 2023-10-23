@@ -16,11 +16,11 @@ const CustomHeader = () => (
             }}
         >
 
-            <Link href='/home' style={{}}><Title type="warning"
+            <Title type="warning"
                 className='name'
                 style={{
                     textAlign: "center"
-                }}>Georgian Exam</Title></Link>
+                }}>Georgian Exam</Title>
         </Header>
     </>
 );
