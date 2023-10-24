@@ -11,7 +11,7 @@ export function getRandomQuestion(array) {
 export function getRandomQuestions(num, start = 0, end = 10) {
 
     const randomQuestions = [];
-    const questionsClone = questions.slice(start, end + 1);
+    const questionsClone = questions.slice(start, end);
 
     while (num > 0) {
         const { question, index } = getRandomQuestion(questionsClone);
