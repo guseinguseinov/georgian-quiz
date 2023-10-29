@@ -12,6 +12,7 @@ function Quiz() {
     const [selected, setSelected] = useState();
     const [disabledNextBtn, setDisabledNextBtn] = useState(true);
     const [showResult, setShowResult] = useState(false);
+    const [index, setIndex] = useState(0);
     var [questionNumber, setQuestionNumber] = useState(1);
     var [score, setScore] = useState(0);
 
@@ -26,6 +27,7 @@ function Quiz() {
     useEffect(() => {
         if (randomQuestions?.length > 0) {
             setQuestion(randomQuestions[0]?.question);
+            setIndex(randomQuestions[0]?.index);
             setAnswers(randomQuestions[0]?.options);
             setCorrectAnswer(randomQuestions[0]?.answer);
             (randomQuestions[0]?.pre) ? setPre(randomQuestions[0]?.pre) : setPre(null);
@@ -41,6 +43,7 @@ function Quiz() {
             setQuestion(randomQuestions[0]?.question);
             setAnswers(randomQuestions[0]?.options);
             setCorrectAnswer(randomQuestions[0]?.answer);
+            setIndex(randomQuestions[0]?.index);
             (randomQuestions[0]?.pre) ? setPre(randomQuestions[0]?.pre) : setPre(null);
 
             randomQuestions?.splice(randomQuestions[0], 1);
@@ -141,6 +144,7 @@ function Quiz() {
 
                         }}>
                             <Title style={{ marginTop: "0" }}>{`Score: ${score}/${numberOfQuestions}`}</Title>
+                            {showResult ? null : <Title style={{ marginTop: "0", fontSize: "20px" }}>№: {index}</Title>}
                             {showResult ? null : <Title style={{ marginTop: "0" }}>{questionNumber}</Title>}
                         </div>
 

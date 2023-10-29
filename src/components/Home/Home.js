@@ -10,7 +10,6 @@ function Home() {
 
     const onFinish = (values) => {
         const { numberOfQuestions, rangeOfQuestions } = values;
-        console.log(rangeOfQuestions)
         var countOfQuestions = numberOfQuestions;
 
         if (rangeOfQuestions[1] - rangeOfQuestions[0] < numberOfQuestions) {
@@ -100,6 +99,7 @@ function Home() {
                                     0: "0",
                                     50: "50",
                                     100: "100",
+                                    124: "124",
                                     // 150: "150", 
                                     // 200: "200"
                                 }}

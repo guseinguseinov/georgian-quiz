@@ -15,6 +15,8 @@ export function getRandomQuestions(num, start = 0, end = 10) {
 
     while (num > 0) {
         const { question, index } = getRandomQuestion(questionsClone);
+        const questionIndex = questions.indexOf(question);
+        question.index = questionIndex + 1;
         randomQuestions.push(question);
         questionsClone.splice(index, 1);
         num--;
