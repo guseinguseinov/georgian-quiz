@@ -186,8 +186,21 @@ function Quiz() {
                                         disabled={selected}
                                         onClick={() => checkCorrectAnswer(answer?.split(".")[0])}
                                         key={answer}
+                                        style={{
+                                            height: "auto"
+                                        }}
+
+
                                     >
-                                        {answer}
+                                        <span
+                                            style={{
+                                                width: "100%",
+                                                display: "block",
+                                                whiteSpace: "normal",
+                                            }}
+                                        >
+                                            {answer}
+                                        </span>
                                     </Button>
                                 ))
                             )}
@@ -215,7 +228,7 @@ function Quiz() {
                         </div>
                     </div>
                 </div>
-            </DefaultComponent>
+            </DefaultComponent >
         </>
     );
 }
