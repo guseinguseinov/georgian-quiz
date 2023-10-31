@@ -92,7 +92,7 @@ function Home() {
                         <Slider
                             range
                             step={5}
-                            defaultValue={[0, 10]}
+                            defaultValue={[0, 200]}
                             max={questions.length}
                             marks={
                                 {
@@ -100,7 +100,7 @@ function Home() {
                                     50: "50",
                                     100: "100",
                                     150: "150",
-                                    // 200: "200"
+                                    200: "200"
                                 }}
                         />
                     </Form.Item>
