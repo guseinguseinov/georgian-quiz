@@ -119,7 +119,7 @@ function Quiz() {
                             backgroundColor: "green"
                         }}
 
-                        onClick={() => navigate('/home')}
+                        onClick={() => navigate('/')}
                     >
                         Back
                     </Button>
@@ -213,7 +213,7 @@ function Quiz() {
                             }}
                         >
                             {showResult ? (
-                                <Button type="primary" onClick={() => navigate("/home")}>
+                                <Button type="primary" onClick={() => navigate("/")}>
                                     Home
                                 </Button>
                             ) : (
